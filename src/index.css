@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-bg-base text-ink-high font-sans antialiased;
+    background-image:
+      radial-gradient(
+        circle at 18% -8%,
+        rgba(56, 189, 248, 0.10),
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 110% 12%,
+        rgba(167, 139, 250, 0.10),
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 50% 110%,
+        rgba(244, 114, 182, 0.06),
+        transparent 50%
+      );
+    background-attachment: fixed;
+  }
+  ::selection {
+    background: rgba(56, 189, 248, 0.3);
+    color: #fff;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #243049;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-bg-panel/80 border border-bg-line rounded-2xl;
+  }
+  .card {
+    @apply bg-bg-card border border-bg-line rounded-2xl;
+  }
+  .chip {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-medium border;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply btn bg-accent-css text-bg-base hover:bg-accent-cssDeep hover:text-white shadow-glow;
+  }
+  .btn-ghost {
+    @apply btn bg-bg-soft text-ink-high border border-bg-line hover:border-accent-css/50;
+  }
+  .btn-danger {
+    @apply btn bg-accent-warn/15 text-accent-warn border border-accent-warn/30 hover:bg-accent-warn/25;
+  }
+  .codeblock {
+    @apply font-mono text-[12.5px] leading-relaxed text-ink-high;
+  }
+  .editor-dot {
+    @apply inline-block w-2.5 h-2.5 rounded-full;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.fade-in {
+  animation: fade 240ms ease both;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
